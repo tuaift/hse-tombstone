@@ -1,0 +1,36 @@
+.ex-enter {
+  opacity: 0;
+}
+
+.ex-enter-active {
+  opacity: 1;
+  transition: opacity 2s ease-in-out;
+}
+
+.continue-enter {
+  opacity: 0;
+}
+
+.continue-enter-active {
+  opacity: 1;
+  transition: opacity 3.5s ease-in-out;
+}
+
+
+.disc-enter {
+  opacity: 0;
+}
+
+.disc-enter-active {
+  opacity: 1;
+  transition: opacity 0s ease-in-out;
+}
+
+.disc-exit {
+  opacity: 1;
+}
+
+.disc-exit-active {
+  opacity: 0;
+  transition: opacity 3.5s ease-in-out;
+}
