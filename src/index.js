@@ -1,13 +1,17 @@
 import React, { useEffect, useState } from "react";
 import ReactDOM from 'react-dom';
-import {
-  CSSTransition,
-  SwitchTransition,
-} from 'react-transition-group';
+import {CSSTransition, SwitchTransition} from 'react-transition-group';
+import Draggable, {DraggableCore} from 'react-draggable';
 import './index.css';
 import './transition.css';
 import './forms.css';
+import './tombstone_constructor.css';
 
+function customClose() {
+  window.opener=null;
+  window.open('','_self');
+  window.close();
+}
 
 function breakLine(text) {
     var br = React.createElement('br');
@@ -22,7 +26,7 @@ class ExitScreen extends React.Component {
     return (
       <div className='exit-container'>
         <div className="btn-container-exit">
-          <button className="btn-exit btn-close-window">exit</button>
+          <button className="btn-exit btn-close-window" onClick={() => customClose()}>exit</button>
           <button className="btn-exit btn-graveyard">go to the graveyard</button>
         </div>
       </div>
@@ -36,49 +40,7 @@ function Splash() {
       <div className="img-container splash">
         <img className="splash-img logo-inside" src="img/logo_inside_both.svg" alt=""/>
       </div>
-      <h2>(scroll to continue)</h2>
-    </div>
-  );
-}
-
-function QuestionsTest() {
-  const [textarea, setTextarea] = useState(
-    "The content of a textarea goes in the value attribute"
-  );
-
-  const handleChange = (event) => {
-    setTextarea(event.target.value)
-  }
-
-  return (
-    <div className="splash-screen">
-      <form id="questions-form" action="index.html" method="post">
-        <fieldset id="q1">
-          <h1>1. <br/> am i afraid <br/> of death?</h1>
-          <textarea name="name" rows="30" cols="80"></textarea>
-          <input type="button" name="next" className="next action-button" value="Next"/>
-        </fieldset>
-        <fieldset id="q2">
-          <h1>2. <br/> how do i see <br/> my death? </h1>
-          <textarea name="name" rows="8" cols="50"></textarea>
-          <input type="button" name="next" className="next action-button" value="Next"/>
-        </fieldset>
-        <fieldset id="q3">
-          <h1>3. <br/> what legacy <br/> will i leave?</h1>
-          <textarea name="name" rows="8" cols="50"></textarea>
-          <input type="button" name="next" className="next action-button" value="Next"/>
-        </fieldset>
-        <fieldset id="q4">
-          <h1>4. <br/> how will i <br/> be remembered?</h1>
-          <textarea name="name" rows="10" cols="50"></textarea>
-          <input type="button" name="next" className="next action-button" value="Next"/>
-        </fieldset>
-        <fieldset id="q5">
-          <h1>5. <br/> what happens <br/> after i die?</h1>
-          <textarea name="name" rows="10" cols="50"></textarea>
-          <input type="button" name="next" className="submit action-button" value="Submit"/>
-        </fieldset>
-      </form>
+      <h2>(scroll to discuss death)</h2>
     </div>
   );
 }
@@ -148,8 +110,9 @@ function Q5({ formData, setFormData }) {
   );
 }
 
-
-function Questions() {
+// form submit and transition to tombstone construction
+// ex Questions
+function Continue() {
   const [page, setPage] = useState(0);
   const [formData, setFormData] = useState({
     q1: "",
@@ -181,23 +144,101 @@ function Questions() {
     }
   };
 
+  const [showForm, setShowForm] = useState(true);
+  const [showTombstone, setShowTombstone] = useState(false);
+
+  const transitionToTombstone = () => {
+    setShowForm(false);
+    setTimeout(() => {
+      setShowTombstone(true);
+    }, 4000);
+  };
+
   return (
+    <div className='continue-container'>
+      <CSSTransition
+        in={showForm}
+        timeout={3000}
+        classNames="questions"
+        unmountOnExit
+        onExiting={() => setShowForm(false)}
+      >
+      {<div className="container-app">
+        <Splash />
+        <div className="splash-screen">
+          <div className="form">
+            <div className="form-container">
+              <h1>{breakLine(FormTitles[page])}</h1>
+              {PageDisplay()}
+              <button
+                onClick={() => {
+                  if (page === FormTitles.length - 1) {
+                    transitionToTombstone();
+                    console.log(formData.q1);
+                  } else {
+                    setPage((currPage) => currPage + 1);
+                  }
+                }}
+              >
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>}
+      </CSSTransition>
+      <CSSTransition
+        in={showTombstone}
+        timeout={3000}
+        classNames="constructor-3s"
+        unmountOnExit
+        onEnter={() => setShowForm(false)}
+      >
+      <TombstoneConstructor />
+      </CSSTransition>
+    </div>
+  );
+}
+
+
+// class Continue extends React.Component {
+//   render() {
+//     return (
+//       <div className='continue-container'>
+//         <Splash />
+//         <Questions />
+//       </div>
+//     );
+//   }
+// }
+
+
+function TombstoneConstructor() {
+  const [page, setPage] = useState(0);
+  const FormTitles = [
+    "what about <br /> the form of your <br /> tombstone?",
+    "choose what best <br /> describes you <br /> as a person",
+    "<br /> what was important <br /> for you?"
+  ];
+
+  return(
     <div className="splash-screen">
-      <div className="form">
-        <div className="form-container">
-          <h1>{breakLine(FormTitles[page])}</h1>
-          {PageDisplay()}
+      <div className="constructor-container">
+        <div className="constructor-steps step-1">
+          <h1 className="constructor-header">{breakLine(FormTitles[page])}</h1>
+          <div className="constructor-field">
+            <div className="img-container tombstone">
+              <img className="ryba-img" src="../img/ryba_new.svg" alt=""/>
+            </div>
+          </div>
           <button
             onClick={() => {
               if (page === FormTitles.length - 1) {
-                alert("FORM SUBMITTED");
-                console.log(formData);
+                console.log('end');
               } else {
                 setPage((currPage) => currPage + 1);
               }
             }}
           >
-            {page === FormTitles.length - 1 ? "Submit" : "Next"}
           </button>
         </div>
       </div>
@@ -206,16 +247,121 @@ function Questions() {
 }
 
 
-class Continue extends React.Component {
-  render() {
-    return (
-      <div className='continue-container'>
-        <Splash />
-        <Questions />
+function TombstoneDraggable() {
+  const[show, setShow] = useState(false);
+  const submitHandeler = e => {
+    e.preventDefault();
+    setShow(!show);
+  };
+
+  return (
+    <div className='tombstone-constructor'>
+      <div className='tombstone-char'>
+        <div className='draggable-lr'>
+          <div className="draggable-l">
+            <Draggable>
+              <div className="circle"></div>
+            </Draggable>
+            <Draggable>
+              <div className="circle"></div>
+            </Draggable>
+            <Draggable>
+              <div className="circle"></div>
+            </Draggable>
+            <Draggable>
+              <div className="circle"></div>
+            </Draggable>
+            <Draggable>
+              <div className="circle"></div>
+            </Draggable>
+            <Draggable>
+              <div className="circle"></div>
+            </Draggable>
+            <Draggable>
+              <div className="circle"></div>
+            </Draggable>
+          </div>
+          <div className="draggable-r">
+            <Draggable>
+              <div className="circle"></div>
+            </Draggable>
+            <Draggable>
+              <div className="circle"></div>
+            </Draggable>
+            <Draggable>
+              <div className="circle"></div>
+            </Draggable>
+            <Draggable>
+              <div className="circle"></div>
+            </Draggable>
+            <Draggable>
+              <div className="circle"></div>
+            </Draggable>
+            <Draggable>
+              <div className="circle"></div>
+            </Draggable>
+            <Draggable>
+              <div className="circle"></div>
+            </Draggable>
+          </div>
+        </div>
+        <div className='draggable-tb'>
+          <div className="draggable-t">
+            <Draggable>
+              <div className="circle horizontal"></div>
+            </Draggable>
+            <Draggable>
+              <div className="circle horizontal"></div>
+            </Draggable>
+            <Draggable>
+              <div className="circle horizontal"></div>
+            </Draggable>
+            <Draggable>
+              <div className="circle horizontal"></div>
+            </Draggable>
+            <Draggable>
+              <div className="circle horizontal"></div>
+            </Draggable>
+            <Draggable>
+              <div className="circle horizontal"></div>
+            </Draggable>
+            <Draggable>
+              <div className="circle horizontal"></div>
+            </Draggable>
+          </div>
+          <div className="draggable-b">
+            <Draggable>
+              <div className="circle horizontal"></div>
+            </Draggable>
+            <Draggable>
+              <div className="circle horizontal"></div>
+            </Draggable>
+            <Draggable>
+              <div className="circle horizontal"></div>
+            </Draggable>
+            <Draggable>
+              <div className="circle horizontal"></div>
+            </Draggable>
+            <Draggable>
+              <div className="circle horizontal"></div>
+            </Draggable>
+            <Draggable>
+              <div className="circle horizontal"></div>
+            </Draggable>
+            <Draggable>
+              <div className="circle horizontal"></div>
+            </Draggable>
+          </div>
+        </div>
+        <div className="img-container tombstone">
+          <img className="ryba-img" src="../img/blob_ryba.png" alt=""/>
+        </div>
       </div>
-    );
-  }
+    </div>
+  );
 }
+
+
 
 
 function DisclaimerTransition() {
@@ -270,7 +416,7 @@ function DisclaimerTransition() {
 
       <CSSTransition
         in={showEx}
-        timeout={2000}
+        timeout={5000}
         classNames="ex"
         unmountOnExit
         onEnter={() => setShowButton(false)}
@@ -295,6 +441,6 @@ function DisclaimerTransition() {
 
 
 ReactDOM.render(
-  <DisclaimerTransition />,
+  <DisclaimerTransition  />,
   document.getElementById('root')
 );
