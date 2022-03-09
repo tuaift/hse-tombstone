@@ -17,7 +17,7 @@
   width: 200px;
   margin-top: -5.5px;
   border: 2px solid black;
-  background-image: url("../public/img/button_bg.svg");
+  background-image: url("./img_test/button_bg.svg");
   background-position: center;
   background-size: 115%;
   background-repeat: no-repeat;
@@ -29,7 +29,7 @@
   color: #000;
   background-color: #f5f5f5;
   border: 2px solid black;
-  background-image: url("../public/img/button_bg_hover.svg");
+  background-image: url("./img_test/button_bg_hover.svg");
 }
 
 textarea {

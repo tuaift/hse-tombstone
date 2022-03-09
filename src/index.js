@@ -214,6 +214,58 @@ function Continue() {
 //   }
 // }
 
+function CharacterLeft() {
+  return (
+    <div className='draggable-container'>
+      <div className="draggable-l">
+        <Draggable>
+          <div className="circle"></div>
+        </Draggable>
+        <Draggable>
+          <div className="circle"></div>
+        </Draggable>
+        <Draggable>
+          <div className="circle"></div>
+        </Draggable>
+        <Draggable>
+          <div className="circle"></div>
+        </Draggable>
+        <Draggable>
+          <div className="circle"></div>
+        </Draggable>
+        <Draggable>
+          <div className="circle"></div>
+        </Draggable>
+        <Draggable>
+          <div className="circle"></div>
+        </Draggable>
+      </div>
+      <div className="draggable-r">
+        <Draggable>
+          <div className="circle"></div>
+        </Draggable>
+        <Draggable>
+          <div className="circle"></div>
+        </Draggable>
+        <Draggable>
+          <div className="circle"></div>
+        </Draggable>
+        <Draggable>
+          <div className="circle"></div>
+        </Draggable>
+        <Draggable>
+          <div className="circle"></div>
+        </Draggable>
+        <Draggable>
+          <div className="circle"></div>
+        </Draggable>
+        <Draggable>
+          <div className="circle"></div>
+        </Draggable>
+      </div>
+    </div>
+  );
+}
 
 function TombstoneConstructor() {
   const [page, setPage] = useState(0);
@@ -223,10 +275,18 @@ function TombstoneConstructor() {
     "<br /> what was important <br /> for you?"
   ];
 
+  const CharacterDisplay = () => {
+    if (page === 1) {
+      return <CharacterLeft />;
+    } else if (page === 2) {
+      return "jopa";
+    }
+  };
+
   return(
     <div className="splash-screen">
       <div className="constructor-container">
-        <div className="constructor-steps step-1">
+        <div className="constructor-steps">
           <h1 className="constructor-header">{breakLine(FormTitles[page])}</h1>
           <div className="constructor-field">
             <div className="img-container tombstone">
@@ -243,6 +303,7 @@ function TombstoneConstructor() {
             }}
           >
           </button>
+          {CharacterDisplay()}
         </div>
       </div>
     </div>
@@ -444,6 +505,6 @@ function DisclaimerTransition() {
 
 
 ReactDOM.render(
-  <DisclaimerTransition  />,
+  <TombstoneConstructor  />,
   document.getElementById('root')
 );

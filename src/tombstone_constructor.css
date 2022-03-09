@@ -1,3 +1,12 @@
+.constructor-container {
+  width: 100vw;
+  height: 100vh;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .constructor-field {
   width: 900px;
   height: 600px;
@@ -17,7 +26,7 @@
   width: 200px;
   margin-top: -2px;
   border: 2px solid black;
-  background-image: url("../public/img/button_bg.svg");
+  background-image: url("./img_test/button_bg.svg");
   background-position: center;
   background-size: 115%;
   background-repeat: no-repeat;
@@ -29,7 +38,16 @@
   color: #000;
   background-color: #f5f5f5;
   border: 2px solid black;
-  background-image: url("../public/img/button_bg_hover.svg");
+  background-image: url("./img_test/button_bg_hover.svg");
+}
+
+.draggable-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 25vw;
+  padding: 40px;
 }
 
 
@@ -106,6 +124,7 @@
 }
 
 .draggable-lr {
+  position: absolute;
   width: 1060px;
   z-index: 1;
 }
