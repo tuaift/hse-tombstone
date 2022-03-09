@@ -6,6 +6,9 @@ import './index.css';
 import './transition.css';
 import './forms.css';
 import './tombstone_constructor.css';
+import disclaimerImg from './img_test/icon_disclaimer.svg';
+import splashImg from './img_test/logo_inside_both.svg';
+import blob from './img_test/ryba_new.svg';
 
 function customClose() {
   window.opener=null;
@@ -38,7 +41,7 @@ function Splash() {
   return(
     <div className="splash-screen">
       <div className="img-container splash">
-        <img className="splash-img logo-inside" src="img/logo_inside_both.svg" alt=""/>
+        <img className="splash-img logo-inside" src={splashImg} alt=""/>
       </div>
       <h2>(scroll to discuss death)</h2>
     </div>
@@ -227,7 +230,7 @@ function TombstoneConstructor() {
           <h1 className="constructor-header">{breakLine(FormTitles[page])}</h1>
           <div className="constructor-field">
             <div className="img-container tombstone">
-              <img className="ryba-img" src="../img/ryba_new.svg" alt=""/>
+              <img className="ryba-img" src={blob} alt=""/>
             </div>
           </div>
           <button
@@ -395,7 +398,7 @@ function DisclaimerTransition() {
       {<div className='disc-container-wrap'>
         <div className='disclaimer-container'>
           <div className="img-container">
-            <img className="disclaimer-img" src="img/icon_disclaimer.svg" alt=""/>
+            <img className="disclaimer-img" src={disclaimerImg}/>
           </div>
           <h1>disclaimer</h1>
           <div className="txt-main">
