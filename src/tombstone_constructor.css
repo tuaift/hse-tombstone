@@ -5,6 +5,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  background-color: #f5f5f5;
 }
 
 .constructor-field {
@@ -46,9 +47,351 @@
   top: 0;
   left: 0;
   height: 100vh;
-  width: 25vw;
-  padding: 40px;
+  width: 20vw;
+  padding: 120px 80px;
 }
+
+.draggable-container.right {
+  position: absolute;
+  height: 100vh;
+  width: 20vw;
+  padding: 120px 60px;
+  top: 0;
+  left: calc(100vw - 420px);
+}
+
+.draggable-container.values .draggable-l,
+.draggable-container.values .draggable-r {
+  margin-top: 200px;
+  height: 60vh;
+}
+
+.draggable-l,
+.draggable-r {
+  height: 50vw;
+  width: 20vw;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.chs {
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.circle:hover::after {
+  content: "";
+  position: absolute;
+  left: -14px;
+  top: 25px;
+  width: 100px;
+  border: 1px solid black;
+  background-color: #fff;
+  padding: 12px;
+  color: #000000;
+  font-size: 22px;
+  z-index: 100;
+  text-align: center;
+}
+
+.ch1 {
+  background-image: url("./img_test/ch1.png");
+}
+
+.ch1:hover::after {
+  content: "generous";
+}
+
+.ch2 {
+  background-image: url("./img_test/ch2.png");
+}
+
+.ch2:hover::after {
+  content: "friendly";
+}
+
+.ch3 {
+  background-image: url("./img_test/ch3.png");
+}
+
+.ch3:hover::after {
+  content: "romantic";
+}
+
+.ch4 {
+  background-image: url("./img_test/ch4.png");
+  background-size: 60%;
+}
+
+.ch4:hover::after {
+  content: "loner";
+}
+
+.ch5 {
+  background-image: url("./img_test/ch5.png");
+}
+
+.ch5:hover::after {
+  content: "porposeful";
+}
+
+.ch6 {
+  background-image: url("./img_test/ch6.png");
+}
+
+.ch6:hover::after {
+  content: "kind";
+}
+
+.ch7 {
+  background-image: url("./img_test/ch7.png");
+}
+
+.ch7:hover::after {
+  content: "thrifty";
+}
+
+.ch8 {
+  background-image: url("./img_test/ch8.png");
+}
+
+.ch8:hover::after {
+  content: "creative";
+}
+
+.ch9 {
+  background-image: url("./img_test/ch9.png");
+}
+
+.ch9:hover::after {
+  content: "perfectionist";
+  width: 130px;
+}
+
+.ch10 {
+  background-image: url("./img_test/ch10.png");
+  background-size: 60%;
+}
+
+.ch10:hover::after {
+  content: "homebody";
+}
+
+.ch11 {
+  background-image: url("./img_test/ch11.png");
+  background-size: 60%;
+}
+
+.ch11:hover::after {
+  content: "obstinate";
+}
+
+.ch12 {
+  background-image: url("./img_test/ch12.png");
+  background-size: 60%;
+}
+
+.ch12:hover::after {
+  content: "risky";
+}
+
+.ch13 {
+  background-image: url("./img_test/ch13.png");
+  background-size: 60%;
+}
+
+.ch13:hover::after {
+  content: "secretive";
+}
+
+.ch14 {
+  background-image: url("./img_test/ch14.png");
+}
+
+.ch14:hover::after {
+  content: "impulsive";
+}
+
+.ch15 {
+  background-image: url("./img_test/ch15.png");
+}
+
+.ch15:hover::after {
+  content: "caring";
+}
+
+.ch16 {
+  background-image: url("./img_test/ch16.png");
+  background-size: 106%;
+}
+
+.ch16:hover::after {
+  content: "stable";
+}
+
+.ch17 {
+  background-image: url("./img_test/ch17.png");
+  background-size: 80%;
+}
+
+.ch17:hover::after {
+  content: "harsh";
+}
+
+.ch18 {
+  background-image: url("./img_test/ch18.png");
+  background-size: 60%;
+}
+
+.ch18:hover::after {
+  content: "careerist";
+}
+
+.ch19 {
+  background-image: url("./img_test/ch19.png");
+  background-size: 30%;
+}
+
+.ch19:hover::after {
+  content: "pessimist";
+}
+
+.ch20 {
+  background-image: url("./img_test/ch20.png");
+  background-size: 30%;
+}
+
+.ch20:hover::after {
+  content: "optimist";
+}
+
+.ch21 {
+  background-image: url("./img_test/ch21.png");
+  background-size: 115%;
+}
+
+.ch21:hover::after {
+  content: "brave";
+}
+
+
+.ch22 {
+  background-image: url("./img_test/ch22.png");
+  background-size: 85%;
+}
+
+.ch22:hover::after {
+  content: "open book";
+}
+
+.ch23 {
+  background-image: url("./img_test/ch23.png");
+}
+
+.ch23:hover::after {
+  content: "attentive";
+}
+
+.ch24 {
+  background-image: url("./img_test/ch24.png");
+  background-size: 80%;
+}
+
+.ch24:hover::after {
+  content: "gentle";
+}
+
+.vl1 {
+  background-image: url("./img_test/vl1.png");
+}
+
+.vl1:hover::after {
+  content: "education";
+}
+
+.vl2 {
+  background-image: url("./img_test/vl2.png");
+}
+
+.vl2:hover::after {
+  content: "happiness";
+}
+
+.vl3 {
+  background-image: url("./img_test/vl3.png");
+}
+
+.vl3:hover::after {
+  content: "wealth";
+}
+
+.vl4 {
+  background-image: url("./img_test/vl4.png");
+}
+
+.vl4:hover::after {
+  content: "travelling";
+}
+
+.vl5 {
+  background-image: url("./img_test/vl5.png");
+}
+
+.vl5:hover::after {
+  content: "stability";
+}
+
+.vl6 {
+  background-image: url("./img_test/vl6.png");
+}
+
+.vl6:hover::after {
+  content: "family";
+}
+
+.vl7 {
+  background-image: url("./img_test/vl7.png");
+}
+
+.vl7:hover::after {
+  content: "art";
+}
+
+.vl8 {
+  background-image: url("./img_test/vl8.png");
+  background-size: 60%;
+}
+
+.vl8:hover::after {
+  content: "health";
+}
+
+.vl9 {
+  background-image: url("./img_test/vl9.png");
+}
+
+.vl9:hover::after {
+  content: "religion";
+}
+
+.vl10 {
+  background-image: url("./img_test/vl10.png");
+}
+
+.vl10:hover::after {
+  content: "love";
+}
+
+.vl11 {
+  background-image: url("./img_test/vl11.png");
+}
+
+.vl11:hover::after {
+  content: "popularity";
+}
+
 
 
 .tombstone-constructor {
@@ -80,29 +423,51 @@
   width: 100px;
   height: 100px;
   display: block;
-  background-color: magenta;
-  border-radius: 50%;
-  margin-bottom: 20px;
+  margin-right: 75px;
   position: relative;
 }
 
-.circle:hover::after {
-  content: "meaning";
+.graveart-ryba {
+  width: 65%;
+}
+
+.ryba-container {
+  background-color: #f5f5f5;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.ryba-container .img-container {
+  width: 800px;
+  position: relative;
+}
+
+.img-container.ryba:hover::after {
+  content: '';
   position: absolute;
+  width: 300px;
+  height: 500px;
   left: -14px;
-  top: 25px;
-  width: 100px;
-  border: 1px solid black;
+  top: 305px;
   background-color: #fff;
-  padding: 12px;
-  color: #000000;
-  font-size: 22px;
+  background-image: url("./img_test/graveart_hover.svg");
+  background-size: contain;
+  background-repeat: no-repeat;
+  padding: 0;
   z-index: 100;
-  text-align: center;
+}
+
+
+.ryba-container h1 {
+  margin-bottom: -10px;
 }
 
 .circle.horizontal {
-  margin-right: 20px;
+  margin-right: 5px;
 }
 
 .draggable-lr,

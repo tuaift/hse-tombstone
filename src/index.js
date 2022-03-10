@@ -9,6 +9,8 @@ import './tombstone_constructor.css';
 import disclaimerImg from './img_test/icon_disclaimer.svg';
 import splashImg from './img_test/logo_inside_both.svg';
 import blob from './img_test/ryba_new.svg';
+import finalBlob from './img_test/final_blob.svg';
+import graveartRyba from './img_test/graveart_ryba.svg';
 
 function customClose() {
   window.opener=null;
@@ -219,73 +221,287 @@ function CharacterLeft() {
     <div className='draggable-container'>
       <div className="draggable-l">
         <Draggable>
-          <div className="circle"></div>
+          <div className="circle chs ch1"></div>
         </Draggable>
         <Draggable>
-          <div className="circle"></div>
+          <div className="circle chs ch2"></div>
         </Draggable>
         <Draggable>
-          <div className="circle"></div>
+          <div className="circle chs ch3"></div>
         </Draggable>
         <Draggable>
-          <div className="circle"></div>
+          <div className="circle chs ch4"></div>
         </Draggable>
         <Draggable>
-          <div className="circle"></div>
+          <div className="circle chs ch5"></div>
         </Draggable>
         <Draggable>
-          <div className="circle"></div>
+          <div className="circle chs ch6"></div>
         </Draggable>
         <Draggable>
-          <div className="circle"></div>
-        </Draggable>
-      </div>
-      <div className="draggable-r">
-        <Draggable>
-          <div className="circle"></div>
+          <div className="circle chs ch7"></div>
         </Draggable>
         <Draggable>
-          <div className="circle"></div>
+          <div className="circle chs ch8"></div>
         </Draggable>
         <Draggable>
-          <div className="circle"></div>
+          <div className="circle chs ch9"></div>
         </Draggable>
         <Draggable>
-          <div className="circle"></div>
+          <div className="circle chs ch10"></div>
         </Draggable>
         <Draggable>
-          <div className="circle"></div>
+          <div className="circle chs ch11"></div>
         </Draggable>
         <Draggable>
-          <div className="circle"></div>
-        </Draggable>
-        <Draggable>
-          <div className="circle"></div>
+          <div className="circle chs ch12"></div>
         </Draggable>
       </div>
     </div>
   );
 }
 
+function CharacterRight() {
+  return (
+    <div className='draggable-container right'>
+      <div className="draggable-r">
+        <Draggable>
+          <div className="circle chs ch13"></div>
+        </Draggable>
+        <Draggable>
+          <div className="circle chs ch14"></div>
+        </Draggable>
+        <Draggable>
+          <div className="circle chs ch15"></div>
+        </Draggable>
+        <Draggable>
+          <div className="circle chs ch16"></div>
+        </Draggable>
+        <Draggable>
+          <div className="circle chs ch17"></div>
+        </Draggable>
+        <Draggable>
+          <div className="circle chs ch18"></div>
+        </Draggable>
+        <Draggable>
+          <div className="circle chs ch19"></div>
+        </Draggable>
+        <Draggable>
+          <div className="circle chs ch20"></div>
+        </Draggable>
+        <Draggable>
+          <div className="circle chs ch21"></div>
+        </Draggable>
+        <Draggable>
+          <div className="circle chs ch22"></div>
+        </Draggable>
+        <Draggable>
+          <div className="circle chs ch23"></div>
+        </Draggable>
+        <Draggable>
+          <div className="circle chs ch24"></div>
+        </Draggable>
+      </div>
+    </div>
+  );
+}
+
+function ValuesLeft() {
+  return (
+    <div className='draggable-container values'>
+      <div className="draggable-l">
+        <Draggable>
+          <div className="circle chs vl1"></div>
+        </Draggable>
+        <Draggable>
+          <div className="circle chs vl2"></div>
+        </Draggable>
+        <Draggable>
+          <div className="circle chs vl3"></div>
+        </Draggable>
+        <Draggable>
+          <div className="circle chs vl4"></div>
+        </Draggable>
+        <Draggable>
+          <div className="circle chs vl5"></div>
+        </Draggable>
+        <Draggable>
+          <div className="circle chs vl6"></div>
+        </Draggable>
+      </div>
+    </div>
+  );
+}
+
+function ValuesRight() {
+  return (
+    <div className='draggable-container values right'>
+      <div className="draggable-r">
+        <Draggable>
+          <div className="circle chs vl7"></div>
+        </Draggable>
+        <Draggable>
+          <div className="circle chs vl8"></div>
+        </Draggable>
+        <Draggable>
+          <div className="circle chs vl9"></div>
+        </Draggable>
+        <Draggable>
+          <div className="circle chs vl10"></div>
+        </Draggable>
+        <Draggable>
+          <div className="circle chs vl11"></div>
+        </Draggable>
+      </div>
+    </div>
+  );
+}
+
+function Characters() {
+  return (
+    <div>
+      <CharacterLeft />
+      <CharacterRight />
+    </div>
+  );
+}
+
+function Values() {
+  return (
+    <div>
+      <ValuesLeft />
+      <ValuesRight />
+    </div>
+  );
+}
+
+function FinalRyba() {
+  const [showForm, setShowForm] = useState(true);
+  const [showTombstone, setShowTombstone] = useState(false);
+  const [showEx, setShowEx] = useState(false);
+
+  const transitionToEx = () => {
+    setShowForm(false);
+    setTimeout(() => {
+      setShowEx(true);
+    }, 4000);
+  };
+
+  const transitionToFinal = () => {
+    setShowForm(false);
+    setTimeout(() => {
+      setShowTombstone(true);
+    }, 4000);
+  };
+
+  return (
+    <div className="dark-screen">
+      <CSSTransition
+        in={showForm}
+        timeout={3000}
+        classNames="questions"
+        unmountOnExit
+        onExiting={() => setShowForm(false)}
+      >{<div className="final-container">
+          <h1 className="constructor-header">your <br /> tombstone</h1>
+          <div className="constructor-field final">
+            <div className="img-container">
+              <img className="final-img" src={finalBlob} alt=""/>
+            </div>
+            <p className="">i am afraid of death</p>
+            <p className="">and i cant see myself dying</p>
+            <p className="">i will leave nothing</p>
+            <p className="">no one will remember me</p>
+            <p className="">after i die there is nothing</p>
+          </div>
+          <div className="btn-final">
+            <button>download</button>
+            <button>share</button>
+          </div>
+          <div className='disclaimer-container final'>
+            <h1>do you want <br /> to visit digital <br /> graveyard?</h1>
+            <div className="txt-main">
+              <p>your tombstone will become a part of big digital
+                <br/>graveart. you can explore each others
+                <br/>tombstone and pay respect
+              </p>
+            </div>
+            <div className="btn-container">
+              <button className="btn-disclaimer" onClick={() => transitionToEx()}>end your experience</button>
+              <button className="btn-disclaimer" onClick={() => transitionToFinal()}>i want to continue</button>
+            </div>
+          </div>
+        </div>}
+      </CSSTransition>
+      <CSSTransition
+        in={showEx}
+        timeout={5000}
+        classNames="ex"
+        unmountOnExit
+        onEnter={() => setShowForm(false)}
+      >
+      <ExitScreen />
+      </CSSTransition>
+      <CSSTransition
+        in={showTombstone}
+        timeout={5000}
+        classNames="ex"
+        unmountOnExit
+        onEnter={() => setShowForm(false)}
+      >
+      <GraveartRyba />
+      </CSSTransition>
+    </div>
+  );
+}
+
+function GraveartRyba() {
+  return (
+    <div className="ryba-container">
+      <h1 className="constructor-header">graveart</h1>
+      <div className="img-container ryba">
+        <img className="graveart-ryba" src={graveartRyba}/>
+      </div>
+    </div>
+  );
+}
+
+
 function TombstoneConstructor() {
   const [page, setPage] = useState(0);
+  const [showForm, setShowForm] = useState(true);
+  const [showTombstone, setShowTombstone] = useState(false);
+
+  const transitionToFinal = () => {
+    setShowForm(false);
+    setTimeout(() => {
+      setShowTombstone(true);
+    }, 4000);
+  };
   const FormTitles = [
     "what about <br /> the form of your <br /> tombstone?",
     "choose what best <br /> describes you <br /> as a person",
-    "<br /> what was important <br /> for you?"
+    "<br /> what is important <br /> for you?"
   ];
 
   const CharacterDisplay = () => {
     if (page === 1) {
-      return <CharacterLeft />;
+      return <Characters />
     } else if (page === 2) {
-      return "jopa";
+      return <Values />
     }
   };
 
   return(
-    <div className="splash-screen">
-      <div className="constructor-container">
+    <div className="dark-screen">
+      <CSSTransition
+        in={showForm}
+        timeout={3000}
+        classNames="questions"
+        unmountOnExit
+        onExiting={() => setShowForm(false)}
+      >
+      {<div className="constructor-container">
         <div className="constructor-steps">
           <h1 className="constructor-header">{breakLine(FormTitles[page])}</h1>
           <div className="constructor-field">
@@ -296,7 +512,7 @@ function TombstoneConstructor() {
           <button
             onClick={() => {
               if (page === FormTitles.length - 1) {
-                console.log('end');
+                transitionToFinal();
               } else {
                 setPage((currPage) => currPage + 1);
               }
@@ -304,127 +520,22 @@ function TombstoneConstructor() {
           >
           </button>
           {CharacterDisplay()}
+          </div>
         </div>
-      </div>
+    }
+      </CSSTransition>
+      <CSSTransition
+        in={showTombstone}
+        timeout={3000}
+        classNames="constructor-3s"
+        unmountOnExit
+        onEnter={() => setShowForm(false)}
+      >
+      <FinalRyba />
+      </CSSTransition>
     </div>
   );
 }
-
-
-function TombstoneDraggable() {
-  const[show, setShow] = useState(false);
-  const submitHandeler = e => {
-    e.preventDefault();
-    setShow(!show);
-  };
-
-  return (
-    <div className='tombstone-constructor'>
-      <div className='tombstone-char'>
-        <div className='draggable-lr'>
-          <div className="draggable-l">
-            <Draggable>
-              <div className="circle"></div>
-            </Draggable>
-            <Draggable>
-              <div className="circle"></div>
-            </Draggable>
-            <Draggable>
-              <div className="circle"></div>
-            </Draggable>
-            <Draggable>
-              <div className="circle"></div>
-            </Draggable>
-            <Draggable>
-              <div className="circle"></div>
-            </Draggable>
-            <Draggable>
-              <div className="circle"></div>
-            </Draggable>
-            <Draggable>
-              <div className="circle"></div>
-            </Draggable>
-          </div>
-          <div className="draggable-r">
-            <Draggable>
-              <div className="circle"></div>
-            </Draggable>
-            <Draggable>
-              <div className="circle"></div>
-            </Draggable>
-            <Draggable>
-              <div className="circle"></div>
-            </Draggable>
-            <Draggable>
-              <div className="circle"></div>
-            </Draggable>
-            <Draggable>
-              <div className="circle"></div>
-            </Draggable>
-            <Draggable>
-              <div className="circle"></div>
-            </Draggable>
-            <Draggable>
-              <div className="circle"></div>
-            </Draggable>
-          </div>
-        </div>
-        <div className='draggable-tb'>
-          <div className="draggable-t">
-            <Draggable>
-              <div className="circle horizontal"></div>
-            </Draggable>
-            <Draggable>
-              <div className="circle horizontal"></div>
-            </Draggable>
-            <Draggable>
-              <div className="circle horizontal"></div>
-            </Draggable>
-            <Draggable>
-              <div className="circle horizontal"></div>
-            </Draggable>
-            <Draggable>
-              <div className="circle horizontal"></div>
-            </Draggable>
-            <Draggable>
-              <div className="circle horizontal"></div>
-            </Draggable>
-            <Draggable>
-              <div className="circle horizontal"></div>
-            </Draggable>
-          </div>
-          <div className="draggable-b">
-            <Draggable>
-              <div className="circle horizontal"></div>
-            </Draggable>
-            <Draggable>
-              <div className="circle horizontal"></div>
-            </Draggable>
-            <Draggable>
-              <div className="circle horizontal"></div>
-            </Draggable>
-            <Draggable>
-              <div className="circle horizontal"></div>
-            </Draggable>
-            <Draggable>
-              <div className="circle horizontal"></div>
-            </Draggable>
-            <Draggable>
-              <div className="circle horizontal"></div>
-            </Draggable>
-            <Draggable>
-              <div className="circle horizontal"></div>
-            </Draggable>
-          </div>
-        </div>
-        <div className="img-container tombstone">
-          <img className="ryba-img" src="../img/blob_ryba.png" alt=""/>
-        </div>
-      </div>
-    </div>
-  );
-}
-
 
 
 
@@ -505,6 +616,6 @@ function DisclaimerTransition() {
 
 
 ReactDOM.render(
-  <TombstoneConstructor  />,
+  <DisclaimerTransition />,
   document.getElementById('root')
 );
