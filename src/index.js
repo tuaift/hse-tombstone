@@ -118,6 +118,7 @@ function Q5({ formData, setFormData }) {
   );
 }
 
+
 // form submit and transition to tombstone construction
 // ex Questions
 function Continue() {
@@ -152,6 +153,28 @@ function Continue() {
     }
   };
 
+  const [showDot, setShowDot] = useState(false);
+  const toggleDotClass = () => {
+    setShowDot(true);
+  };
+  const dotStatus = showDot ? 'dot-active' : null;
+  const dotClasses = `dot ${dotStatus}`;
+
+  const PageDisplay = () => {
+    if (page === 0) {
+      setShowDot(true);
+    } else if (page === 1) {
+      return <Q2 formData={formData} setFormData={setFormData} />;
+    } else if (page === 2) {
+      return <Q3 formData={formData} setFormData={setFormData} />;
+    } else if (page === 3) {
+      return <Q4 formData={formData} setFormData={setFormData} />;
+    } else if (page === 4) {
+      return <Q5 formData={formData} setFormData={setFormData} />;
+    }
+  };
+
+
   const [showForm, setShowForm] = useState(true);
   const [showTombstone, setShowTombstone] = useState(false);
 
@@ -175,6 +198,13 @@ function Continue() {
         <Splash />
         <div className="splash-form-screen">
           <div className="form">
+            <div className='progress-container'>
+              <div className="dot dot1 dot-active"></div>
+              <div className="dot dot2"></div>
+              <div className="dot dot3"></div>
+              <div className="dot dot4"></div>
+              <div className="dot dot5"></div>
+            </div>
             <h1 className="form-title"><Markup content={FormTitles[page]} /></h1>
             <div className="form-container">
               {PageDisplay()}
@@ -184,6 +214,7 @@ function Continue() {
                     transitionToTombstone();
                     console.log(formData);
                   } else {
+                    toggleDotClass();
                     setPage((currPage) => currPage + 1);
                   }
                 }}
