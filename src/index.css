@@ -44,17 +44,23 @@ section, body, html {
   left: 0;
 }
 
-.disc-container-wrap,
 .splash-screen,
 .dark-screen,
 .final-container {
-  background-color: #f5f5f5;
+  background-color: #ececec;
   display: flex;
   justify-content: center;
   align-items: center;
   height: 100vh;
   width: 100vw;
   text-align: center;
+}
+
+.disc-container-wrap,
+.splash-form-screen {
+  height: 100vh;
+  width: 100vw;
+  background-color: #ececec;
 }
 
 .final-container {
@@ -99,7 +105,7 @@ section, body, html {
   background-position: center;
   margin-top: -2px;
   background-repeat: no-repeat;
-  color: #f5f5f5;
+  color: #ececec;
   background-color: #000;
   font-size: 28px;
   outline: none;
@@ -112,7 +118,7 @@ section, body, html {
 
 .btn-final button:hover {
   color: #000;
-  background-color: #f5f5f5;
+  background-color: #ececec;
 }
 
 .disclaimer-container.final {
@@ -167,17 +173,11 @@ section, body, html {
 }
 
 .disclaimer-container {
-  /* width: 40.2vw;
-  height: 47.6vh; */
-  width: 720px;
-  height: 495px;
-  border: 2px solid black;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  align-items: center;
-  position: relative;
-  background-color: #f5f5f5;
+  width: 450px;
+  height: 450px;
+  position: absolute;
+  bottom: 12.75vh;
+  right: 8vw;
 }
 
 .img-container {
@@ -189,11 +189,6 @@ section, body, html {
 
 .img-container.splash {
   margin: 0;
-}
-
-.disclaimer-img {
-  width: 76px;
-  height: auto;
 }
 
 .splash-img {
@@ -225,11 +220,16 @@ h1, h2, p {
 
 h1 {
   font-size: 54px;
-  margin-bottom: 6px;
 }
 
 h2 {
   font-size: 34px;
+}
+
+.disclaimer-container h1 {
+  margin-bottom: 3.6vh;
+  line-height: 50%;
+  text-align: center;
 }
 
 .main-container h2 {
@@ -238,36 +238,28 @@ h2 {
 
 .txt-main p {
   font-size: 20px;
-  line-height: 24px;
-  text-align: center;
+  line-height: 122%;
 }
 
 .btn-container {
-  width: 100%;
   position: absolute;
-  bottom: 0px;
+  bottom: 3.842vh;
+  right: 2.95vw;
 }
 
-.btn-disclaimer {
-  width: 100%;
-  height: 55px;
-  font-size: 20px;
-  margin-top: 3px;
-  border: none;
-  outline: 0;
-  color: #f5f5f5;
-  background-color: #000;
+.btn-disclaimer.txt {
+  text-decoration: underline;
 }
 
 .btn-disclaimer:hover {
-  border-top: 2px solid black;
-  color: #000;
-  background-color: #f5f5f5;
+  cursor: pointer;
+  text-decoration: underline;
 }
 
-.btn-disclaimer:hover:nth-child(2) {
-  border-top: none;
+.btn-disclaimer.txt:hover {
+  text-decoration: none;
 }
+
 
 fieldset {
   border: none;

@@ -11,6 +11,8 @@ import splashImg from './img_test/logo_inside_both.svg';
 import blob from './img_test/ryba_new.svg';
 import finalBlob from './img_test/final_blob.svg';
 import graveartRyba from './img_test/graveart_ryba.svg';
+import $ from 'jquery';
+import { Markup } from 'interweave';
 
 function customClose() {
   window.opener=null;
@@ -38,6 +40,7 @@ class ExitScreen extends React.Component {
     );
   }
 }
+
 
 function Splash() {
   return(
@@ -128,11 +131,11 @@ function Continue() {
   });
 
   const FormTitles = [
-    "1. <br /> am i afraid <br /> of death?",
-    "2. <br /> how do i see <br /> my death?",
-    "3. <br /> what legacy <br /> will i leave?",
-    "4. <br /> how will i be <br /> remembered?",
-    "5. <br /> what happens <br /> after i die?"
+    "1/5&nbsp;&nbsp;&nbsp;&nbsp;am i afraid <br /> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;of death?",
+    "2/5&nbsp;&nbsp;&nbsp;&nbsp;how do i see<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;my<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; death?",
+    "3/5&nbsp;&nbsp;&nbsp;&nbsp;what legacy <br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; will &nbsp;&nbsp;&nbsp;&nbsp; i &nbsp;&nbsp;&nbsp;&nbsp; leave?",
+    "4/5&nbsp;&nbsp;&nbsp;&nbsp;how will i <br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;be <br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;remembered?",
+    "5/5&nbsp;&nbsp;&nbsp;&nbsp;what happens <br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;after i die?"
   ];
 
   const PageDisplay = () => {
@@ -170,22 +173,22 @@ function Continue() {
       >
       {<div className="container-app">
         <Splash />
-        <div className="splash-screen">
+        <div className="splash-form-screen">
           <div className="form">
+            <h1 className="form-title"><Markup content={FormTitles[page]} /></h1>
             <div className="form-container">
-              <h1>{breakLine(FormTitles[page])}</h1>
               {PageDisplay()}
-              <button
+              <h1 className="btn-disclaimer"
                 onClick={() => {
                   if (page === FormTitles.length - 1) {
                     transitionToTombstone();
-                    console.log(formData.q1);
+                    console.log(formData);
                   } else {
                     setPage((currPage) => currPage + 1);
                   }
                 }}
-              >
-              </button>
+              >next
+              </h1>
             </div>
           </div>
         </div>
@@ -569,22 +572,27 @@ function DisclaimerTransition() {
       >
       {<div className='disc-container-wrap'>
         <div className='disclaimer-container'>
-          <div className="img-container">
-            <img className="disclaimer-img" src={disclaimerImg}/>
+          <h1 style={{marginLeft: 65 + 'px'}}>disclaimer</h1>
+          <div className="txt-main disclaimer">
+            <p style={{marginLeft: 50 + 'px'}}>this site is made for therapeutic</p>
+            <p style={{marginLeft: 30 + 'px'}}>and reflective purposes for people who</p>
+            <p style={{marginLeft: 50 + 'px'}}>are open to the topic of their mortality</p>
+            <p>if discussing death can trigger you or if you are</p>
+            <p>still having a hard time discussing this subject,</p>
+            <p>it is better <span className='btn-disclaimer txt' onClick={() => transitionToEx()}>to end your experience</span> right now</p>
+            <p style={{marginLeft: 80 + 'px'}}>we will collect your data</p><br/>
+            <p style={{marginLeft: 100 + 'px'}}>while you're here</p>
+            <p style={{marginLeft: 90 + 'px'}}>this is safe and necessary to make your</p>
+            <p style={{marginLeft: 80 + 'px'}}>tombstone personal and truthful</p>
+            <p style={{marginLeft: 40 + 'px'}}>the goal of this experience is to create</p>
+            <p style={{marginLeft: 30 + 'px'}}>a digitally personalized legacy,</p>
+            <p style={{marginLeft: 50 + 'px'}}>that can be shared and through </p><br/>
+            <p style={{marginLeft: 120 + 'px'}}>which we reflect</p><br/>
+            <p style={{marginLeft: 125 + 'px'}}>on our life path</p>
           </div>
-          <h1>disclaimer</h1>
-          <div className="txt-main">
-            <p>this site is made for therapeutic and reflective
-              <br/>purposes for people who are open to the topic
-              <br/>of their mortality. if discussing death can trigger
-              <br/>you or if you are still having a hard time
-              <br/>discussing this subject, it is better
-              <br/>to&nbsp;end your experience right now.</p>
-          </div>
-          <div className="btn-container">
-            <button className="btn-disclaimer" onClick={() => transitionToEx()}>end your experience</button>
-            <button className="btn-disclaimer" onClick={() => transitionToContinue()}>i want to continue</button>
-          </div>
+        </div>
+        <div className="btn-container">
+          <h1 className="btn-disclaimer" onClick={() => transitionToContinue()}>i want to <br/>continue</h1>
         </div>
       </div>}
       </CSSTransition>
@@ -616,6 +624,6 @@ function DisclaimerTransition() {
 
 
 ReactDOM.render(
-  <DisclaimerTransition />,
+  <Continue />,
   document.getElementById('root')
 );
