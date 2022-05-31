@@ -1,38 +1,16 @@
 {
   "files": {
-    "main.css": "/hse-tombstone/static/css/main.f838ce73.css",
-    "main.js": "/hse-tombstone/static/js/main.52245ec9.js",
-    "static/media/graveart_ryba.svg": "/hse-tombstone/static/media/graveart_ryba.9006cb22ab7f3ef647febd666c0a8260.svg",
-    "static/media/final_blob.svg": "/hse-tombstone/static/media/final_blob.f338698bdf477d96a6673683493334c9.svg",
-    "static/media/icon_disclaimer.svg": "/hse-tombstone/static/media/icon_disclaimer.5a432f81495d9e4a52aa60951c32a6ba.svg",
-    "static/media/graveart_hover.svg": "/hse-tombstone/static/media/graveart_hover.eea1e93baa02dd0fe323.svg",
+    "main.css": "/hse-tombstone/static/css/main.62d09bc9.css",
+    "main.js": "/hse-tombstone/static/js/main.ff0eb235.js",
     "static/media/SuisseIntl-Regular.otf": "/hse-tombstone/static/media/SuisseIntl-Regular.b248914e0a53493d03f0.otf",
-    "static/media/ryba_new.svg": "/hse-tombstone/static/media/ryba_new.23bb5c83de673376d96d68b6ff21d599.svg",
-    "static/media/logo_inside_both.svg": "/hse-tombstone/static/media/logo_inside_both.e72cb834e646e542649128ed0699fa1d.svg",
-    "static/media/vl9.png": "/hse-tombstone/static/media/vl9.fb25143a5c8bcecec799.png",
-    "static/media/vl3.png": "/hse-tombstone/static/media/vl3.918c3cd10db2b4faaccd.png",
-    "static/media/vl7.png": "/hse-tombstone/static/media/vl7.427e731df2a679436746.png",
-    "static/media/ch9.png": "/hse-tombstone/static/media/ch9.231574fbae81880c6d22.png",
-    "static/media/vl6.png": "/hse-tombstone/static/media/vl6.aacbbd1883456fde1fb7.png",
-    "static/media/ch2.png": "/hse-tombstone/static/media/ch2.0114726b24d8c5102182.png",
-    "static/media/ch23.png": "/hse-tombstone/static/media/ch23.78f5b8c100100e3df506.png",
-    "static/media/ch22.png": "/hse-tombstone/static/media/ch22.3ab1cad3b8b0f541c009.png",
-    "static/media/ch15.png": "/hse-tombstone/static/media/ch15.12f329d35c319af7b852.png",
-    "static/media/vl11.png": "/hse-tombstone/static/media/vl11.1b26a276d686f3de7d53.png",
-    "static/media/ch7.png": "/hse-tombstone/static/media/ch7.b18974c25ebfe1dbee1c.png",
-    "static/media/vl1.png": "/hse-tombstone/static/media/vl1.572d57b4e53559898b45.png",
-    "static/media/ch3.png": "/hse-tombstone/static/media/ch3.be18af36dc55eb49ecad.png",
-    "static/media/ch1.png": "/hse-tombstone/static/media/ch1.a6b4c9c0e86e234c6e38.png",
-    "static/media/vl4.png": "/hse-tombstone/static/media/vl4.f4430ed00d85bee7ad8f.png",
-    "static/media/ch6.png": "/hse-tombstone/static/media/ch6.0539e602f5876de2cf3c.png",
     "index.html": "/hse-tombstone/index.html",
     "static/media/button_bg.svg": "/hse-tombstone/static/media/button_bg.6429181f299686f04ae7.svg",
     "static/media/button_bg_hover.svg": "/hse-tombstone/static/media/button_bg_hover.9eecfb26e113afc78496.svg",
-    "main.f838ce73.css.map": "/hse-tombstone/static/css/main.f838ce73.css.map",
-    "main.52245ec9.js.map": "/hse-tombstone/static/js/main.52245ec9.js.map"
+    "main.62d09bc9.css.map": "/hse-tombstone/static/css/main.62d09bc9.css.map",
+    "main.ff0eb235.js.map": "/hse-tombstone/static/js/main.ff0eb235.js.map"
   },
   "entrypoints": [
-    "static/css/main.f838ce73.css",
-    "static/js/main.52245ec9.js"
+    "static/css/main.62d09bc9.css",
+    "static/js/main.ff0eb235.js"
   ]
 }
